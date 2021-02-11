@@ -28,4 +28,21 @@ public HeavenlyBody(String name,double orbitalPeriod){
     public Set<HeavenlyBody> getSatellites(){
     return new HashSet<> (this.satellites);//we avoid returning the original instead return a copy due to risk of editing
     }
+
+
+    @Override
+    public boolean equals(Object obj){
+        System.out.println("obj class"+obj.getClass());
+        System.out.println("this class"+this.getClass());
+
+        if(this==obj){
+        return true;
+    }
+    if(obj==null||obj.getClass()!=this.getClass()){
+        return false;
+    }
+
+    String objName=((HeavenlyBody)obj).getName();
+    return this.name.equals(objName);
+    }
 }
